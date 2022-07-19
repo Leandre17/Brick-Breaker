@@ -6,7 +6,7 @@ from src.window import Window
 from src.class_brick import Briks
 
 
-def brick_breaker():
+def brick_breaker() -> (None):
     red = 255, 0, 0
     blue = 0, 0, 255
     violet = 255, 0, 255
@@ -38,7 +38,7 @@ def brick_breaker():
         pygame.time.Clock().tick(60)
 
 
-def main():
+def main() -> (None):
     brick_breaker()
 
 

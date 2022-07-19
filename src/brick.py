@@ -1,9 +1,11 @@
 import pygame
 from src.ball import ball
+from src.window import Window
+from src.class_brick import Briks, Node
 
 
-def draw_briks(briks, window):
-    tmp = briks.head
+def draw_briks(briks: Briks, window: Window) -> (None):
+    tmp: Node = briks.head
     while tmp != None:
         if window.ballrect.colliderect(tmp.rect) and tmp.visible:
             if window.ballrect.collidepoint(tmp.rect.right, tmp.rect.bottom):
@@ -16,7 +18,7 @@ def draw_briks(briks, window):
         tmp = tmp.next
 
 
-def draw_bar(window):
+def draw_bar(window: Window) -> (None):
     red = 255, 0, 0
     left = pygame.mouse.get_pos()[0] - 50
     if left < 0:
@@ -27,7 +29,7 @@ def draw_bar(window):
     pygame.draw.rect(window.screen, red, rect)
 
 
-def brick_main(window, briks):
+def brick_main(window: Window, briks: Briks) -> (None):
     black = (0, 0, 0)
 
     window.screen.fill(black)
