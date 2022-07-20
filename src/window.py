@@ -1,6 +1,7 @@
-import sys, pygame
+import pygame
 from typing import Tuple, Any
 from pygame import Surface
+
 
 class Window:
     def __init__(self: Any, size: Tuple[int, int]) -> (None):

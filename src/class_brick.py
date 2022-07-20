@@ -1,8 +1,11 @@
 from typing import Tuple, Any
 from pygame import Rect
 
+
 class Node:
-    def __init__(self: Any, rect: Rect, color: Tuple[int, int, int], next: Any) -> (None):
+    def __init__(
+        self: Any, rect: Rect, color: Tuple[int, int, int], next: Any
+    ) -> (None):
         self.color: Tuple[int, int, int] = color
         self.rect: Rect = rect
         self.visible: bool = True
