@@ -5,8 +5,9 @@ from typing import Tuple
 from src.window import Window
 
 
-def read_data(bricks: Briks) -> (Window):
+def read_data() -> (Window):
     window = Window((1000, 600))
+    bricks = Briks()
     try:
         all_file: list[str] = open("level1.txt", "r").read().split("@")
         if len(all_file) < 2:
@@ -37,4 +38,5 @@ def read_data(bricks: Briks) -> (Window):
             bricks.push_front(rect, choice(list(colors.values())))
         except:
             print("a bad one")
+    window.bricks = bricks
     return window

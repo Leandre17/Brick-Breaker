@@ -29,9 +29,9 @@ def draw_bar(window: Window) -> (None):
     pygame.draw.rect(window.screen, red, rect)
 
 
-def brick_main(window: Window, briks: Briks) -> (None):
+def brick_main(window: Window) -> (None):
     black = (0, 0, 0)
-
+    briks = window.bricks
     window.screen.fill(black)
     ball(window)
     draw_briks(briks, window)

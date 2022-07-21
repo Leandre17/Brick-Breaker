@@ -30,6 +30,6 @@ def ball(window: Window) -> (None):
         window.ball_speed[1] = -window.ball_speed[1]
     if window.ballrect.bottom > window.height:
         print("You loose!")
-        window.loop = False
+        window.status = 2
     check_ball_bar_colide(window)
     window.screen.blit(window.ball, window.ballrect)

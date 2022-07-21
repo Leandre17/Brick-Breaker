@@ -10,6 +10,7 @@ class Window:
         self.screen = pygame.display.set_mode(size)
         self.ball_speed = [0, 2]
         self.loop = True
+        self.status = 0
 
     def ball_init(self: Any, path: str, ball_size: Tuple[int, int]) -> (None):
         self.ball = pygame.image.load(path)
