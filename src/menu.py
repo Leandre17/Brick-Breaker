@@ -1,8 +1,9 @@
 import pygame
 from src.window import Window
+from typing import Any
 
 
-def set_text():
+def set_text() -> (Any):
     pygame.font.init()
     my_font = pygame.font.Font(None, 60)
     text00 = my_font.render("Start", True, (0, 0, 0))
@@ -11,7 +12,8 @@ def set_text():
     text11 = my_font.render("Option", True, (0, 0, 255))
     return (text00, text01, text10, text11)
 
-def quit_button(window: Window):
+
+def quit_button(window: Window) -> (None):
     blue = 0, 0, 255
     red = 255, 0, 0
     width_by_6 = window.width // 6
@@ -57,7 +59,6 @@ def retry_buttun(window: Window) -> (None):
     else:
         pygame.draw.rect(window.screen, blue, rect)
         window.screen.blit(text10, (width_by_6 * 2.615, height_by_8 * 3.25))
-
 
 
 def main_menu(window: Window) -> (None):

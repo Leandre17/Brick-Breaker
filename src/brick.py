@@ -37,3 +37,6 @@ def brick_main(window: Window) -> (None):
     draw_briks(briks, window)
     draw_bar(window)
     pygame.display.flip()
+    if window.bricks.size_visible() == 0:
+        print("You Win!")
+        window.status = 3

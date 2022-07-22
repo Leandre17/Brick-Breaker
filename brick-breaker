@@ -20,9 +20,6 @@ def brick_breaker() -> (None):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 window.loop = False
-        if window.bricks.size_visible() == 0:
-            print("You Win!")
-            window.status = 3
         pygame.time.Clock().tick(60)
     pygame.quit()
 
