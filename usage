@@ -1,0 +1,5 @@
+Brick Breaker is based on the classic arcade brick breaking game.
+Use the paddle to move left and right with the mouse to make the ball bounce and break all the bricks in the level
+
+Usage:
+    ./brick-breaker [config.txt]

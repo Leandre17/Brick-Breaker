@@ -8,11 +8,15 @@ from src.file_read import read_data
 from src.menu import main_menu
 from src.win import win_main
 from src.loose import loose_main
+from sys import argv
 
 
 def brick_breaker() -> (None):
     pygame.init()
-    window = read_data()
+    if (len(argv) == 1):
+        window = read_data()
+    else:
+        window = read_data(argv[1])
 
     fnction = {0: main_menu, 1: brick_main, 2: loose_main, 3: win_main}
     while window.loop:
@@ -25,6 +29,12 @@ def brick_breaker() -> (None):
 
 
 def main() -> (None):
+    if "-h" in argv:
+        try:
+            print(open("usage", "r").read())
+        except:
+            print("Error: no usage found!")
+        return
     brick_breaker()
 
 

@@ -1,0 +1,4 @@
+width=1000
+height=800
+ball_speed=0,2
+level_path=level1.txt
