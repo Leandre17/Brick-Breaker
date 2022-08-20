@@ -6,7 +6,6 @@ from src.class_brick import Briks
 
 class Window:
     def __init__(self: Any, size: Tuple[int, int]) -> (None):
-        self.ball_init("intro_ball.gif", (30, 30))
         self.size = self.width, self.height = size
         self.screen = pygame.display.set_mode(size)
         self.ball_speed = [0, 2]

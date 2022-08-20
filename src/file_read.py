@@ -79,9 +79,10 @@ def read_config(filepath: str) -> (Window):
         return None
     window = Window((width, height))
     ball_speed = all_file[2].split("=")[1].split(",")
-    level = all_file[3].split("=")[1]
-    window.level = level
+    window.level = all_file[3].split("=")[1]
     window.ball_speed = [int(ball_speed[0]), int(ball_speed[1])]
+    size = all_file[5].split("=")[1].split(",")
+    window.ball_init(all_file[4].split("=")[1], (int(size[0]), int(size[1])))
     return window
 
 
