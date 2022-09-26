@@ -1,0 +1,6 @@
+width=1000
+height=800
+ball_speed=0,3
+level_path=.level/level1.txt .level/level2.txt .level/level3.txt
+ball_path=assets/intro_ball.gif
+ball_size=30,30

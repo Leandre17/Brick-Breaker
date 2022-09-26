@@ -26,7 +26,9 @@ def read_color(color: list[str]) -> (dict[str, Tuple[int, int, int]]):
     return colors
 
 
-def get_brick(brique: list[str], colors: dict[str, Tuple[int, int, int]], window: Window) -> (Briks):
+def get_brick(
+    brique: list[str], colors: dict[str, Tuple[int, int, int]], window: Window
+) -> (Briks):
     bricks = Briks()
 
     for i in brique:
@@ -35,7 +37,12 @@ def get_brick(brique: list[str], colors: dict[str, Tuple[int, int, int]], window
             continue
         try:
             rect = pygame.Rect((int(tmp[0]), int(tmp[1]), int(tmp[2]), int(tmp[3])))
-            if rect.left < 0 or rect.right > window.width or rect.top < 0 or rect.bottom > window.height:
+            if (
+                rect.left < 0
+                or rect.right > window.width
+                or rect.top < 0
+                or rect.bottom > window.height
+            ):
                 print(f"The brick:  {rect} is not in the screen")
             bricks.push_front(rect, colors[tmp[4]])
         except IndexError:
@@ -70,23 +77,27 @@ def read_config(filepath: str) -> (Window):
             print("Error wrong file")
             return None
     except:
-        print("Error no config file (config.txt)")
+        print("Error no config file (.config/config.txt)")
         return None
     width = int(all_file[0].split("=")[1])
     height = int(all_file[1].split("=")[1])
     if width < 300 or height < 300:
-        print("Please increase the width or the height to have a window a little visible")
+        print(
+            "Please increase the width or the height to have a window a little visible"
+        )
         return None
     window = Window((width, height))
     ball_speed = all_file[2].split("=")[1].split(",")
-    window.level = all_file[3].split("=")[1]
     window.ball_speed = [int(ball_speed[0]), int(ball_speed[1])]
     size = all_file[5].split("=")[1].split(",")
     window.ball_init(all_file[4].split("=")[1], (int(size[0]), int(size[1])))
+    all_level = all_file[3].split("=")[1].split(" ")
+    window.level = all_level[0]
+    window.next_level = all_level[1::]
     return window
 
 
-def read_data(filepath: str = "./config.txt") -> (Window):
+def read_data(filepath: str = "./.config/config.txt") -> (Window):
     window = read_config(filepath)
     color, brique = read_file(window.level)
     if color == None or brique == None or window == None:

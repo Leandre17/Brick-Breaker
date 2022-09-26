@@ -4,21 +4,21 @@ from src.window import Window
 
 def check_ball_bar_colide(window: Window) -> (None):
     moose = pygame.mouse.get_pos()[0]
-    if moose > window.width - 100:
-        moose = window.width - 100
+    if moose > window.width - 50:
+        moose = window.width - 50
     if moose <= 50:
         moose = 50
-    # For the left
-    if window.ballrect.colliderect((moose - 50, window.height - 74, 35, 3)):
-        window.ball_speed[1] = -window.ball_speed[1]
-        window.ball_speed[0] = -3
-    # For the midle
     if window.ballrect.colliderect((moose - 15, window.height - 75, 30, 3)):
-        window.ball_speed[1] = -window.ball_speed[1]
+        if window.ball_speed[1] < 10:
+            window.ball_speed[1] = int(-1.5 * abs(window.ball_speed[1]))
+        else:
+            window.ball_speed[1] = -1 * abs(window.ball_speed[1])
         window.ball_speed[0] = window.ball_speed[0] // 3
-    # For the right
-    if window.ballrect.colliderect((moose + 15, window.height - 74, 35, 3)):
-        window.ball_speed[1] = -window.ball_speed[1]
+    elif window.ballrect.colliderect((moose - 50, window.height - 75, 35, 3)):
+        window.ball_speed[1] = -1 * abs(window.ball_speed[1])
+        window.ball_speed[0] = -3
+    elif window.ballrect.colliderect((moose + 15, window.height - 75, 35, 3)):
+        window.ball_speed[1] = -1 * abs(window.ball_speed[1])
         window.ball_speed[0] = 3
 
 

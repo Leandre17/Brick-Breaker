@@ -88,4 +88,3 @@ def main_menu(window: Window) -> (None):
         pygame.draw.rect(window.screen, blue, rect2)
         window.screen.blit(text10, (width_by_6 * 2.615, height_by_8 * 3.25))
     quit_button(window)
-    pygame.display.flip()

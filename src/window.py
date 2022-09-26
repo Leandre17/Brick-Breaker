@@ -13,6 +13,9 @@ class Window:
         self.status = 0
         self.bricks: Briks = None
         self.level = None
+        self.next_level = []
+        self.old_level = []
+        self.bar_color = True
 
     def ball_init(self: Any, path: str, ball_size: Tuple[int, int]) -> (None):
         self.ball = pygame.image.load(path)

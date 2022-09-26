@@ -12,4 +12,3 @@ def loose_main(window: Window) -> (None):
     window.screen.blit(text00, rect)
     quit_button(window)
     retry_buttun(window)
-    pygame.display.flip()
